@@ -1,0 +1,32 @@
+{
+  "happy": {
+    "playlist_name": "Happy Hits",
+    "description": "Upbeat songs to boost your mood",
+    "genres": ["pop", "dance", "party"]
+  },
+  "sad": {
+    "playlist_name": "Sad Acoustic",
+    "description": "Soft acoustic songs for emotional moments",
+    "genres": ["acoustic", "piano", "slow"]
+  },
+  "neutral": {
+    "playlist_name": "Lo-fi Chill",
+    "description": "Relaxing background music",
+    "genres": ["lofi", "chill", "ambient"]
+  },
+  "angry": {
+    "playlist_name": "Calm Down",
+    "description": "Relaxing instrumental music",
+    "genres": ["instrumental", "ambient", "meditation"]
+  },
+  "surprise": {
+    "playlist_name": "Party EDM",
+    "description": "Energetic electronic dance music",
+    "genres": ["edm", "dance", "electronic"]
+  },
+  "fear": {
+    "playlist_name": "Meditation & Calm",
+    "description": "Peaceful music to reduce anxiety",
+    "genres": ["meditation", "classical", "soft"]
+  }
+}

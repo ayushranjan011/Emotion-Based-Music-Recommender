@@ -56,7 +56,7 @@ function sleep(ms) {
 async function parseApiResponse(response) {
     const text = await response.text();
 
-        setCameraPlaceholderVisible(!hasStream);
+    if (!text) {
         return {};
     }
 
@@ -101,7 +101,7 @@ function updatePlayer(track, autoplay = false) {
         if (autoplay) {
             playerAudio.play().catch(() => {
                 playerSubtitle.textContent = `${playerSubtitle.textContent} | Press play to start audio.`;
-        setCameraPlaceholderVisible(true);
+            });
         }
         return;
     }
@@ -109,17 +109,10 @@ function updatePlayer(track, autoplay = false) {
     playerShell.classList.remove("is-empty");
     playerShell.classList.add("is-unavailable");
     playerSubtitle.textContent = `${playerSubtitle.textContent} | Preview audio is unavailable for this track.`;
-    videoElement.addEventListener("playing", () => setCameraPlaceholderVisible(false));
-    videoElement.addEventListener("emptied", () => {
-        if (!currentStream) {
-            setCameraPlaceholderVisible(true);
-        }
-    });
     playerAudio.pause();
     playerAudio.removeAttribute("src");
     playerAudio.load();
 }
-    setCameraPlaceholderVisible(true);
 
 
 function highlightActiveTrack(index) {

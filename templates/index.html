@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Based Music Recommender</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+
+    <header class="hero">
+        <div class="hero-copy">
+            <p class="eyebrow">Emotion Based Music Recommender</p>
+            <h1>Turn facial cues into a mood-aware listening session.</h1>
+            <p class="hero-text">
+                Preview your face live, detect a more stable emotion from multiple
+                frames, and jump straight into suggested tracks with playable audio previews.
+            </p>
+
+            <div class="hero-pills">
+                <span class="hero-pill">Live camera preview</span>
+                <span class="hero-pill">Burst emotion analysis</span>
+                <span class="hero-pill">Built-in music player</span>
+            </div>
+        </div>
+
+        <aside class="hero-side">
+            <div class="hero-badge">AI listening room</div>
+            <div class="hero-stat-grid">
+                <article class="hero-stat-card">
+                    <span class="hero-stat-index">01</span>
+                    <strong>Preview</strong>
+                    <p>Use the browser camera for a direct face preview.</p>
+                </article>
+                <article class="hero-stat-card">
+                    <span class="hero-stat-index">02</span>
+                    <strong>Detect</strong>
+                    <p>Sample a short burst of frames for a steadier emotion read.</p>
+                </article>
+                <article class="hero-stat-card">
+                    <span class="hero-stat-index">03</span>
+                    <strong>Play</strong>
+                    <p>Open track links or play previews inside the same page.</p>
+                </article>
+            </div>
+        </aside>
+    </header>
+
+    <main class="layout">
+        <section class="panel panel-preview">
+            <div class="panel-head">
+                <div class="section-heading">
+                    <span class="section-kicker">Capture</span>
+                    <h2>Face Preview</h2>
+                    <p>Frame your face, keep steady for a second, and let the app average a short burst.</p>
+                </div>
+                <div class="panel-chip">Browser camera</div>
+            </div>
+
+            <div class="preview-stage">
+                <video id="camera-preview" autoplay playsinline muted></video>
+                <div id="camera-placeholder" class="camera-placeholder">
+                    Camera preview will appear here
+                </div>
+            </div>
+
+            <div class="button-row">
+                <button id="start-camera" type="button">Start Camera</button>
+                <button id="capture-emotion" type="button">Capture and Detect</button>
+                <button id="stop-camera" type="button" class="button-secondary">Stop Camera</button>
+            </div>
+
+            <div class="snapshot-panel">
+                <div class="section-heading compact">
+                    <span class="section-kicker">Snapshot</span>
+                    <h3>Captured Frame</h3>
+                    <p>The latest frame is sent to the backend as part of the burst analysis.</p>
+                </div>
+                <img id="captured-preview" alt="Captured face preview" hidden>
+                <canvas id="capture-canvas" hidden></canvas>
+            </div>
+
+            <div id="emotion-result" class="status-card">
+                Start the camera to preview your face.
+            </div>
+            <p class="capture-tip">
+                Best results: keep one face in frame, look straight at the camera, and use bright front lighting.
+            </p>
+        </section>
+
+        <section class="panel panel-music">
+            <div class="panel-head">
+                <div class="section-heading">
+                    <span class="section-kicker">Output</span>
+                    <h2>Music Suggestions</h2>
+                    <p>Detected emotion, playlist direction, and track previews will appear here.</p>
+                </div>
+                <div class="panel-chip">Adaptive playlist</div>
+            </div>
+
+            <section id="player-shell" class="player-shell is-empty">
+                <div class="player-top">
+                    <div class="player-copy">
+                        <span class="section-kicker">Player</span>
+                        <h3 id="player-title">Built-in music player</h3>
+                        <p id="player-subtitle">
+                            Click any suggested track to load it here.
+                        </p>
+                    </div>
+                    <a
+                        id="player-link"
+                        class="player-link"
+                        href="#"
+                        target="_blank"
+                        rel="noreferrer"
+                        hidden
+                    >
+                        Open source
+                    </a>
+                </div>
+                <audio id="built-in-player" controls preload="none"></audio>
+            </section>
+
+            <div id="music-result" class="music-result">
+                <div class="empty-state">
+                    Detect an emotion to load suggestions and audio previews.
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <span>Developed by Ayush Ranjan</span>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

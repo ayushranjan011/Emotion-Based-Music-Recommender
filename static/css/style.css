@@ -394,15 +394,8 @@ button:disabled {
         linear-gradient(135deg, rgba(98, 245, 190, 0.08), transparent 42%),
         var(--panel-strong);
 }
-    transition: opacity 0.25s ease, visibility 0.25s ease;
 
 .status-card::before {
-.camera-placeholder.is-hidden,
-.camera-placeholder[hidden] {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-}
     content: "";
     position: absolute;
     left: 0;

@@ -1,0 +1,13 @@
+flask
+opencv-python
+fer
+mtcnn
+numpy
+pandas
+spotipy
+pygame
+requests
+streamlit
+tensorflow
+pytest
+setuptools<81
